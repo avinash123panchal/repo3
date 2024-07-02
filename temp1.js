@@ -1,18 +1,17 @@
 var db = require("../../db");
 var Sequelize = require("sequelize");
-var DataTypes = Sequelize.DataTypes;
 var globalUtils = require('../../../support/utils');
 var constants = require('../../../support/constants');
 var fields = {};
-fields['id'] = {type: DataTypes.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true};
-fields['name'] = {type: DataTypes.STRING(1000), allowNull: false};
-fields['data_file_type'] = {type: DataTypes.STRING(100), allowNull: false};
-fields['is_delete'] = {type: DataTypes.BOOLEAN, allowNull: false};
-fields['is_backup'] = {type: DataTypes.BOOLEAN, allowNull: true};
-fields['max_records'] = {type: DataTypes.BIGINT, allowNull: true};
-fields['code'] = {type: DataTypes.STRING(100), allowNull: true};
-fields['code_hash'] = {type: DataTypes.BIGINT, allowNull: true};
-fields['dependency_json'] = {type: DataTypes.JSON, allowNull: true};
+fields['id'] = {type: Sequelize.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true};
+fields['name'] = {type: Sequelize.STRING, allowNull: false};
+fields['data_file_type'] = {type: Sequelize.STRING, allowNull: false};
+fields['is_delete'] = {type: Sequelize.BOOLEAN, allowNull: false};
+fields['is_backup'] = {type: Sequelize.BOOLEAN, allowNull: true};
+fields['max_records'] = {type: Sequelize.STRING, allowNull: true};
+fields['code'] = {type: Sequelize.STRING, allowNull: true};
+fields['code_hash'] = {type: Sequelize.BIGINT, allowNull: true};
+fields['dependency_json'] = {type: Sequelize.JSON, allowNull: true};
 var keys = Object.keys(constants.db.auditColumns);
 for (var key in keys)
     if (constants.db.auditColumns[keys[key]] instanceof Object)
